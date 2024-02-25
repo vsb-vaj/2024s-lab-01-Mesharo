@@ -9,8 +9,11 @@
 // volumeOfBox({ width: 2, length: 3, height: 5 }) ➞ 30
 
 // Your code:
-export const volumeOfBox = (obj) => {
-
+const volumeOfBox = (obj) => {
+    let valuesArray = Object.values(obj);
+    return valuesArray.reduce((accumulator, item) => {
+        return accumulator * item;
+    }, 1);
 };
   
 // 2 ----
@@ -19,9 +22,14 @@ export const volumeOfBox = (obj) => {
 // personObject("Obi-wan", "Kenobi", "40") ➞ { firstname: "Obi-wan", lastname: "Kenobi", age: 40, yearOfBirth: 1981 }
 
 // Your code:
-export const personObject = (firstname, lastname, age) => {
-
-
+const personObject = (firstname, lastname, age) => {
+    let newObject = {
+        firstname,
+        lastname,
+        age,
+        yearOfBirth: 2024 - age
+    }
+    return newObject;
 };
 
 // 3 ----
@@ -34,8 +42,12 @@ export const personObject = (firstname, lastname, age) => {
 // ]) ➞ 65700
 
 //Your code:
-export const getBudgets = (persons) => {
-
+const getBudgets = (persons) => {
+    let sum = 0;
+    for (let x = 0; x < persons.length; x++)  {
+        sum += persons[x].budget;
+    }
+    return sum;
 };
 
 // 4 ----
@@ -45,7 +57,7 @@ export const getBudgets = (persons) => {
 // sortVehiclesByPrice(vehicles) ➞ [{name: "T-47 Airspeeder", price :5}, {name: "AT-AT", price :20}, {name: "Executor Star Dreadnought", price: 999}]
 
 // Your code:
-export const sortVehiclesByPrice = (vehicles) => {
-  
-
+const sortVehiclesByPrice = (vehicles) => {
+    vehicles.sort(function(a,b){return a["price"] - b["price"]});
+    return vehicles;
 };
