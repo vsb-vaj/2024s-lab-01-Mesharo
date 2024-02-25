@@ -7,9 +7,14 @@
 // * * * * *
 
 // Your code:
-export const drawTriangle = (length = 5) => {
-  
-    // ... write code ...
+const drawTriangle = (length = 5) => {
+  for (let x = 1; x <= length; x++)  {
+    let row = "";
+    for (let y = 0; y < x; y++)  {
+      row += "*";
+    }
+    console.log(row.split('').join(' '));
+  }
 };
 
 // 2#  ========== BONUS =======================
@@ -27,8 +32,19 @@ export const drawTriangle = (length = 5) => {
 // J A V A S C R I P T
 
 // Your code:
-export const drawJavascriptWord = (word = "javascript") => {
+const drawJavascriptWord = (word = "javascript") => {
   // ... write code ...
+  for (let x = 0; x < word.length + 1; x++)  {
+    let row = "";
+    for (let y = 0; y < word.length; y++)  {
+      if (y >= x)  {
+        row += "*";
+      } else  {
+        row += word[word.length - y - 1].toUpperCase();
+      }
+    }
+    console.log(row.split('').reverse().join(' '));
+  }
 };
 
 
@@ -47,6 +63,14 @@ export const drawJavascriptWord = (word = "javascript") => {
 //   ];
 
 // Your code:
-export const getVehiclesAndTopSpeed = (vehicles) => {
-  
+const getVehiclesAndTopSpeed = (vehicles) => {
+  let result = [];
+  for (car of vehicles)  {
+    let speeds = car["measuredSpeeds"];
+    result.push({
+      name: car["name"],
+      topSpeed: Math.max(...speeds)
+    })
+  }
+  return result;
 };
